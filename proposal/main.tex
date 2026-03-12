@@ -63,12 +63,14 @@ After evaluation, we plan to develop a roofline model, showcasing the tradeoffs 
 % the themes of correctness and performance in this course.
 Many applications of machine learning models require computations with sparse matrices. For example, sparse matrices can arise when working with specific types of data, most notably when observations record counts of activities, such as the number of listens per song in a song catalog.~\cite{machinelearningmastery}
 Sparse matrices may also arise when running image recognition models on images with many dark pixels, for example.
+Sparse matrix multiplication is also common in deep neural networks, specifically in NLP and recommendation systems.~\cite{OrdonezSparseAlgos}
 
 Sparse matrices are different from generalized matrices, as classic algorithms for matrix multiplication perform many unnecessary computations when considering elements that are mostly zeros.
 If we can find a way to consider only nonzero elements, we can speed up the general matrix algorithms by a large factor.
 
 We also want to explore applications of sparse matrix multiplication on GPUs.
-Since GPUs are best for fixed-size operations, with some architectures not even supporting arbitrary loops~\cite{redhat}, sparse matrix operations can be difficult to compute efficiently on GPUs, as they might require a variable number of computations based on which part of the matrix is being operated on.
+Since matrix multiplication is largely parallelizable, it is a good candidate for GPUs.
+However, since GPUs are best for fixed-size operations, with some architectures not even supporting arbitrary loops~\cite{redhat}, sparse matrix operations can be difficult to compute efficiently on GPUs, as they might require a variable number of computations based on which part of the matrix is being operated on.
 
 \section{Expected Results}
 
